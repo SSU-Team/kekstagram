@@ -1,0 +1,7 @@
+{
+  "entryPoints": [
+    "source/index.ts",
+    "source/calculator.ts"
+  ],
+  "out": "docs"
+}

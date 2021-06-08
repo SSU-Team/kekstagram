@@ -11,15 +11,26 @@
     "url": "https://github.com/SSU-Team/kekstagram.git/issues"
   },
   "devDependencies": {
-    "browser-sync": "2.26.14",
+    "@typescript-eslint/eslint-plugin": "4.26.0",
+    "@typescript-eslint/parser": "4.26.0",
     "eslint": "7.18.0",
-    "eslint-config-htmlacademy": "4.0.0"
+    "eslint-config-htmlacademy": "4.0.0",
+    "eslint-plugin-tsdoc": "0.2.14",
+    "ts-loader": "9.2.3",
+    "typedoc": "0.20.36",
+    "typescript": "4.3.2",
+    "webpack": "5.38.1",
+    "webpack-cli": "4.7.0",
+    "webpack-dev-server": "3.11.2"
   },
   "license": "MIT",
   "dependencies": {},
   "scripts": {
-    "start": "browser-sync start --server --no-ui --files \"js/**/*.js\"",
-    "test": "eslint js/"
+    "start": "webpack serve",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "build": "webpack",
+    "typedoc": "typedoc"
   },
   "engines": {
     "node": "14.x",
