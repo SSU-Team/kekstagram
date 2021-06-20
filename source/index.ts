@@ -1,8 +1,3 @@
-const renderData = (data: any) => {
-  console.log(data);
-}
+import { startApp, } from './app';
 
-fetch(`https://23.javascript.pages.academy/keksobooking/data`)
-  .then((res) => res.json())
-  .then((data) => renderData(data))
-  .catch((err) => console.log(`alalalalalal` + err))
+startApp();

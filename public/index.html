@@ -2,9 +2,15 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script defer src="bundle.js"></script>
+
   <title>Keksobooking</title>
 </head>
 <body>
@@ -35,8 +41,8 @@
           </select>
           <select name="housing-price" id="housing-price" class="map__filter">
             <option value="any" selected>Any</option>
-            <option value="middle">10000 - 50000&#x20bd;</option>
-            <option value="low">From 10000&#x20bd;</option>
+            <option value="low">To 10000&#x20bd;</option>
+            <option value="middle">From 10000 to 50000&#x20bd;</option>
             <option value="high">From 50000&#x20bd;</option>
           </select>
           <select name="housing-rooms" id="housing-rooms" class="map__filter">
@@ -52,9 +58,9 @@
             <option value="0">No guests</option>
           </select>
           <fieldset id="housing-features" class="map__features">
-            <input type="checkbox" name="features" value="wifi" id="filter-wifi" class="map__checkbox visually-hidden">
+            <input checked type="checkbox" name="features" value="wifi" id="filter-wifi" class="map__checkbox visually-hidden">
             <label class="map__feature map__feature--wifi" for="filter-wifi">Wi-Fi</label>
-            <input type="checkbox" name="features" value="dishwasher" id="filter-dishwasher" class="map__checkbox visually-hidden">
+            <input checked type="checkbox" name="features" value="dishwasher" id="filter-dishwasher" class="map__checkbox visually-hidden">
             <label class="map__feature map__feature--dishwasher" for="filter-dishwasher">Dishwasher</label>
             <input type="checkbox" name="features" value="parking" id="filter-parking" class="map__checkbox visually-hidden">
             <label class="map__feature map__feature--parking" for="filter-parking">Parking</label>
@@ -72,7 +78,7 @@
     <!-- Form -->
     <section class="notice">
       <h2 class="notice__title">Your notice</h2>
-      <form class="ad-form" method="post" enctype="multipart/form-data" autocomplete="off">
+      <form class="ad-form" autocomplete="off">
         <fieldset class="ad-form-header">
           <legend class="ad-form-header__title">Your photo (for the map)</legend>
           <div class="ad-form-header__upload">
@@ -92,7 +98,7 @@
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="address">Address (coordinates)</label>
-          <input id="address" name="address" type="text">
+          <input id="address" name="address" type="text" readonly>
         </fieldset>
         <fieldset class="ad-form__element">
           <label class="ad-form__label" for="type">Type of property</label>
@@ -133,10 +139,10 @@
         <fieldset class="ad-form__element">
           <label class="ad-form__label" for="capacity">Number of beds</label>
           <select id="capacity" name="capacity">
-            <option value="3" selected>For 3 guests</option>
-            <option value="2">For two guests</option>
-            <option value="1">For one guest</option>
             <option value="0">No guests</option>
+            <option value="1">For one guest</option>
+            <option value="2">For two guests</option>
+            <option value="3" selected>For 3 guests</option>
           </select>
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide features">
@@ -230,8 +236,5 @@
       <button type="button" class="error__button">Try again</button>
     </div>
   </template>
-
-  <script src="bundle.js"></script>
-
 </body>
 </html>
